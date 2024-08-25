@@ -50,6 +50,7 @@ const SalesOverview = () => {
       width: 5,
       lineCap: "butt",
       colors: ["transparent"],
+      curve: "straight",
     },
     dataLabels: {
       enabled: false,
