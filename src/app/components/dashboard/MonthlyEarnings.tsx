@@ -75,7 +75,7 @@ const MonthlyEarnings = ({ stock }: { stock: Stock }) => {
   return (
     <DashboardCard
       title={stock.name}
-      action={<Avatar sx={{ backgroundColor: "#1b1b1b" }}>Ava</Avatar>}
+      action={<Avatar alt="stock" src={`/images/stocks/${stock.id}.png`} />}
       footer={
         <Chart
           options={optionscolumnchart}

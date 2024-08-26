@@ -5,12 +5,7 @@ import PageContainer from "@/app/components/container/PageContainer";
 // components
 import SalesOverview from "@/app/components/dashboard/SalesOverview";
 import YearlyBreakup from "@/app/components/dashboard/YearlyBreakup";
-import RecentTransactions from "@/app/components/dashboard/RecentTransactions";
-import ProductPerformance from "@/app/components/dashboard/ProductPerformance";
-import Blog from "@/app/components/dashboard/Blog";
 import MonthlyEarnings from "@/app/components/dashboard/MonthlyEarnings";
-import Stock from "../components/dashboard/Stock";
-// import Scrollbar from "../components/custom-scroll/Scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -49,7 +44,7 @@ export default function Dashboard() {
               slidesPerView={4}
               navigation
             >
-              {fakeStock.map((item: Stock, index: any) => (
+              {fakeStock.map((item: Stock) => (
                 <SwiperSlide>
                   <MonthlyEarnings stock={item} />
                 </SwiperSlide>
@@ -60,20 +55,7 @@ export default function Dashboard() {
             <SalesOverview />
           </Grid>
           <Grid item xs={12} lg={4}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <YearlyBreakup />
-              </Grid>
-              <Grid item xs={12}>
-                {/* <MonthlyEarnings /> */}
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} lg={4}>
-            <RecentTransactions />
-          </Grid>
-          <Grid item xs={12} lg={8}>
-            <ProductPerformance />
+            <YearlyBreakup />
           </Grid>
         </Grid>
       </Box>
