@@ -12,8 +12,15 @@ import {
 import Scrollbar from "@/app/components/custom-scroll/Scrollbar";
 import { Profile } from "./SidebarProfile/Profile";
 import { AppState } from "@/store/store";
-import { Divider } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import SidebarBottomItems from "./SidebarBottomItems";
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
+import {
+  IconArrowDownRight,
+  IconCurrencyDollar,
+  IconArrowUpLeft,
+} from "@tabler/icons-react";
 
 const Sidebar = () => {
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.down("lg"));
@@ -24,6 +31,8 @@ const Sidebar = () => {
     customizer.isCollapse && !customizer.isSidebarHover
       ? customizer.MiniSidebarWidth
       : customizer.SidebarWidth;
+
+  const successlight = theme.palette.success.light;
 
   const onHoverEnter = () => {
     if (customizer.isCollapse) {
@@ -85,6 +94,37 @@ const Sidebar = () => {
                 <Box px={3}>
                   <Logo />
                 </Box>
+                <Box
+                  sx={{
+                    backgroundColor: "black",
+                    color: "white",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    padding: "24px 24px",
+                    margin: "0 24px",
+                  }}
+                >
+                  <Box>
+                    <Typography sx={{ fontSize: "12px", fontWeight: "300" }}>
+                      Total investment
+                    </Typography>
+                    <Typography>$5380,90</Typography>
+                  </Box>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <Avatar
+                      sx={{ bgcolor: successlight, width: 16, height: 16 }}
+                    >
+                      <IconArrowUpLeft width={20} color="#39B69A" />
+                    </Avatar>
+                    <Typography
+                      variant="subtitle2"
+                      fontWeight="600"
+                      color={"#4FBFA6"}
+                    >
+                      18.10%
+                    </Typography>
+                  </Stack>
+                </Box>
                 <Scrollbar sx={{ height: "100%" }}>
                   {/* ------------------------------------------- */}
                   {/* Sidebar Items */}
@@ -120,16 +160,63 @@ const Sidebar = () => {
             },
           }}
         >
-          {/* ------------------------------------------- */}
-          {/* Logo */}
-          {/* ------------------------------------------- */}
-          <Box px={2}>
-            <Logo />
+          <Box
+            sx={{
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            {/* ------------------------------------------- */}
+            {/* Logo */}
+            {/* ------------------------------------------- */}
+            <Box>
+              <Box px={3}>
+                <Logo />
+              </Box>
+              <Box
+                sx={{
+                  backgroundColor: "black",
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "24px 24px",
+                  margin: "0 24px",
+                }}
+              >
+                <Box>
+                  <Typography sx={{ fontSize: "12px", fontWeight: "300" }}>
+                    Total investment
+                  </Typography>
+                  <Typography>$5380,90</Typography>
+                </Box>
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <Avatar sx={{ bgcolor: successlight, width: 16, height: 16 }}>
+                    <IconArrowUpLeft width={20} color="#39B69A" />
+                  </Avatar>
+                  <Typography
+                    variant="subtitle2"
+                    fontWeight="600"
+                    color={"#4FBFA6"}
+                  >
+                    18.10%
+                  </Typography>
+                </Stack>
+              </Box>
+              <Scrollbar sx={{ height: "100%" }}>
+                {/* ------------------------------------------- */}
+                {/* Sidebar Items */}
+                {/* ------------------------------------------- */}
+                <SidebarItems />
+              </Scrollbar>
+              {/* <Profile /> */}
+            </Box>
+            <Box>
+              <Divider />
+              <SidebarBottomItems />
+            </Box>
           </Box>
-          {/* ------------------------------------------- */}
-          {/* Sidebar For Mobile */}
-          {/* ------------------------------------------- */}
-          <SidebarItems />
         </Drawer>
       )}
     </>
